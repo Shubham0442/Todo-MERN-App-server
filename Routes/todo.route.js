@@ -3,6 +3,7 @@ const {Router} = require("express")
 const {Todo} = require("../Models/Todo.model"); 
 const jwt = require("jsonwebtoken");
 const { authentate } = require("../Middlewares/authentation");
+const { validation } = require("../Middlewares/validation");
 require("dotenv").config();
 
 const TodoRouter = Router();
@@ -16,7 +17,7 @@ TodoRouter.get("/", authentate, async(req, res)=>{
     res.send(allTodos)
 }) 
 
-TodoRouter.post("/create", authentate, async(req, res)=>{
+TodoRouter.post("/create", authentate, validation, async(req, res)=>{
     const { userId } = req.body 
     console.log(req.body)
     const allTodos = new Todo({ ...req.body, userId});
