@@ -7,7 +7,7 @@ const { TodoRouter } = require("./Routes/todo.route")
 
 require("dotenv").config()
 
-const PORT = process.env.PORT || 7500
+const PORT = process.env.PORT || 5241
 
 const app = express();
 
