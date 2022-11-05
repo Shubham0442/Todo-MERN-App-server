@@ -13,7 +13,7 @@ userRouter.post("/signup", async(req, res)=>{
 
     await newUser.save()
 
-    res.send("singup successful")
+    res.send({ "msg" : "singup successful" })
 }); 
 
 userRouter.post("/login", async (req, res)=>{

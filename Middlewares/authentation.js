@@ -3,7 +3,12 @@ require("dotenv").config();
 
 
 const authentate = (req, res, next)=>{
-     
+      
+
+   if(!req.headers.authorization)
+   {
+      return res.status(401).send({"message": "Something went wrong......"})
+   }
     const token = req.headers.authorization.split(" ")[1]
     //console.log(token)
 
