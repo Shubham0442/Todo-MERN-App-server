@@ -7,9 +7,9 @@ const userRouter = Router();
 
 userRouter.post("/signup", async(req, res)=>{
      
-    const { email, password } = req.body 
+    const payload = req.body 
 
-    const newUser =  User({ email, password});
+    const newUser = new User(payload);
 
     await newUser.save()
 
