@@ -18,7 +18,7 @@ const authentate = (req, res, next)=>{
             res.status(401).send({"message": "Something went wrong......"})
           }
           else{
-            req.body.userId = decoded.userId 
+            req.body.userId = decoded.userId
             console.log(decoded)
             next()
           }
