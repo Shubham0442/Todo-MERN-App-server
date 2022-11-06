@@ -26,9 +26,9 @@ TodoRouter.post("/create", authentate, async(req, res)=>{
 }); 
 
 TodoRouter.patch("/:todoId", authentate, async (req, res)=>{
-    const payload = req.body
-    const { userId } = req.body
-    const updatedTodo = await Todo.findByIdAndUpdate({userId: userId,_id : req.params.todoId}, {...payload})
+    //const payload = req.body
+    //const { userId } = req.body
+    const updatedTodo = await Todo.findByIdAndUpdate({userId: req.body.userId,_id : req.params.todoId}, {...req.body})
     console.log(updatedTodo)
     res.send({ "msg": "Todo updated successfully"})
 }) 
