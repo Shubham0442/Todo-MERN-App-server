@@ -25,7 +25,7 @@ userRouter.post("/login", async (req, res)=>{
 
     if(result){
 
-        const token = jwt.sign({ userId: userId , email: email}, process.env.key, { expiresIn: '1h' });
+        const token = jwt.sign({ userId: userId , email: email}, process.env.key);
         console.log("Login Successful!")
         res.send({"token": token})
     }
